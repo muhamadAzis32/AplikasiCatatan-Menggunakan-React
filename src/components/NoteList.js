@@ -1,7 +1,7 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 
-function NoteList({ notes, label }) {
+function NoteList({ notes, label, setNotes }) {
     return (
         <>
             <h2>{label}</h2>
@@ -11,7 +11,7 @@ function NoteList({ notes, label }) {
                         <p>Tidak Ada Catatan</p>
                     ) : (
                         notes.map((note) => (
-                            <NoteItem key={note.id} {...note} />
+                            <NoteItem action={setNotes} key={note.id} {...note} />
                         ))
                     )
                 }
