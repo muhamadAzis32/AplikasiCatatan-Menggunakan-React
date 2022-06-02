@@ -108,7 +108,6 @@ textarea::placeholder {
 }
 
 .notes-list__empty-message {
-  text-align: center;
   color: #aaa;
 }
 

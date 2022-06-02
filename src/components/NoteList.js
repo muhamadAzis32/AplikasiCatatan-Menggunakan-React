@@ -8,7 +8,7 @@ function NoteList({ notes, label, setNotes }) {
             <div className="notes-list">
                 {
                     notes.length === 0 ? (
-                        <p>Tidak Ada Catatan</p>
+                        <p className="notes-list__empty-message">Tidak Ada Catatan</p>
                     ) : (
                         notes.map((note) => (
                             <NoteItem action={setNotes} key={note.id} {...note} />
