@@ -1,15 +1,19 @@
 import React from "react";
 import NoteItem from "./NoteItem";
 
-function NoteList({ notes }) {
+function NoteList({ notes, label }) {
     return (
         <>
-            <h2>Catatan Aktif</h2>
+            <h2>{label}</h2>
             <div className="notes-list">
                 {
-                    notes.map((note) => (
-                        <NoteItem key={note.id} {...note} />
-                    ))
+                    notes.length === 0 ? (
+                        <p>Tidak Ada Catatan</p>
+                    ) : (
+                        notes.map((note) => (
+                            <NoteItem key={note.id} {...note} />
+                        ))
+                    )
                 }
             </div>
         </>

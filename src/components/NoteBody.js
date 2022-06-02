@@ -2,11 +2,12 @@ import React from "react";
 import NoteInput from "./NoteInput";
 import NoteList from "./NoteList";
 
-function NoteBody({ notes }) {
+function NoteBody({ notesActive, notesArsip }) {
     return (
         <div className="note-app__body">
             <NoteInput />
-            <NoteList notes={notes} />
+            <NoteList label="Catatan Aktif" notes={notesActive} />
+            <NoteList label="Arsip" notes={notesArsip} />
         </div>
     );
 }
