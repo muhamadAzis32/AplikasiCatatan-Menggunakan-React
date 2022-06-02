@@ -6,6 +6,17 @@ function NoteItem({ id, title, body, createdAt, archived, action }) {
 
     const onDeleteNote = (item) => action((notes) => notes.filter((note) => note.id !== item));
 
+    const onArsipNote = (item) => {
+        action((notes) =>
+            notes.map((note) => {
+                if (note.id === item) {
+                    return { ...note, archived: !note.archived };
+                }
+                return note;
+            }),
+        );
+    };
+
     return (
         <div className="note-item">
             <NoteItemContent
@@ -16,7 +27,7 @@ function NoteItem({ id, title, body, createdAt, archived, action }) {
                 action={action}
             />
 
-            <NoteItemAction onDeleteNote={onDeleteNote} id={id} />
+            <NoteItemAction onDeleteNote={onDeleteNote} onArsipNote={onArsipNote} id={id} archived={archived} />
         </div>
     );
 }
